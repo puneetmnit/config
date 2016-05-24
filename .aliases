@@ -1,0 +1,16 @@
+alias lt='ls -ltrG'
+alias ll='ls -alG'
+alias code='cd ~/Documents/technical/projects'
+
+#vim aliased to mvim
+alias vim='/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim'
+alias vi=vim
+
+#android
+alias adb='/usr/local/android-sdk-macosx/platform-tools/adb'
+alias adb_backup='/usr/local/android-sdk-macosx/platform-tools/adb backup -apk -all -system -f '
+alias adb_restore='/usr/local/android-sdk-macosx/platform-tools/adb restore '
+
+#emacs-app
+alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
+#alias gemacs='open -a /Applications/MacPorts/Emacs.app'

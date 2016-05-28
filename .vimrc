@@ -17,6 +17,15 @@ Plugin 'tpope/vim-fugitive'
 
 "c++ auto-complete
 Plugin 'Valloric/YouCompleteMe'
+Bundle 'LucHermitte/lh-vim-lib'
+Bundle 'LucHermitte/lh-tags'
+Bundle 'LucHermitte/lh-dev'
+Bundle 'LucHermitte/lh-brackets'
+Bundle 'LucHermitte/searchInRuntime'
+Bundle 'LucHermitte/mu-template'
+Bundle 'tomtom/stakeholders_vim'
+Bundle 'LucHermitte/lh-cpp'
+
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
@@ -49,6 +58,16 @@ filetype plugin on
 
 "ycm plugin file
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+"lh-cpp
+imap <C-J>      <Plug>MarkersJumpF
+map <C-J>      <Plug>MarkersJumpF
+imap <C-K>      <Plug>MarkersJumpB
+map <C-K>      <Plug>MarkersJumpB
+imap <C-<>      <Plug>MarkersMark
+nmap <C-<>      <Plug>MarkersMark
+xmap <C-<>      <Plug>MarkersMark
+
 
 " enable exrc to get .vimrc from current directory, if present
 set exrc
@@ -83,6 +102,7 @@ set smartcase
 set nu
 
 " mouse
+set mouse=a
 set mousefocus
 
 " no audio bell

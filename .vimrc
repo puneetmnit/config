@@ -68,6 +68,8 @@ imap <C-<>      <Plug>MarkersMark
 nmap <C-<>      <Plug>MarkersMark
 xmap <C-<>      <Plug>MarkersMark
 
+"git
+autocmd FileType gitcommit spell textwidth=72 
 
 " enable exrc to get .vimrc from current directory, if present
 set exrc
@@ -109,10 +111,22 @@ set mousefocus
 set visualbell
 
 " column width
-" set colorcolumn=110
+set colorcolumn=110
+
 " Always set the current file directory as the local current directory
 autocmd BufEnter * silent! lcd %:p:h
 
 " Move line by line even when the line is wrapped
 map j gj
 map k gk
+
+" remove trailing whitespaces                                                                                           
+autocmd FileType c,cpp,h,hpp,py,sh autocmd BufWritePre <buffer> %s/\s\+$//e
+
+" disable arrow movement. resize windows size                                                                           
+if get(g:, 'elite_mode')                                                                                                
+  nnoremap <Up>     :resize +2<CR>                                                                                      
+  nnoremap <Down>   :resize -2<CR>                                                                                      
+  nnoremap <Left>   :vertical resize +2<CR>                                                                             
+  nnoremap <Right>  :vertical resize +2<CR>                                                                             
+endif 

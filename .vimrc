@@ -1,4 +1,8 @@
 set nocompatible              " be iMproved, required
+
+" enable syntax
+syntax on
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -40,6 +44,16 @@ Bundle 'LucHermitte/lh-cpp'
 " different version somewhere else.
 "Plugin 'ascenator/L9', {'name': 'newL9'}
 
+"Generic programming support
+"Plugin 'vim-syntastic/syntastic'
+Plugin 'jakedouglas/exuberant-ctags'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+"Plugin 'Townk/vim-autoclose'
+
+"Theme / Interface
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,6 +88,34 @@ autocmd FileType gitcommit spell textwidth=72
 " enable exrc to get .vimrc from current directory, if present
 set exrc
 set secure
+
+" Automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+" Completion window showing
+" menu: show all possible completions
+" menuone: show even when there is a single option
+" preview: show extra info in the preview window
+set completeopt=menuone,menu,preview
+
+
+" enable exrc to get .vimrc from current directory, if present
+set exrc
+set secure
+
+" enable elite mode. No ARRRRROWS !!
+let g:elite_mode = 1
+
+" line numbers
+set number
+set ruler
+
+"always display last line
+set laststatus=2
+
+"enable highlighting of current line
+set cursorline
+
 
 " enable syntax
 syntax on
@@ -130,3 +172,64 @@ if get(g:, 'elite_mode')
   nnoremap <Left>   :vertical resize +2<CR>                                                                             
   nnoremap <Right>  :vertical resize +2<CR>                                                                             
 endif 
+
+" Vim-Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+"let g:airline_powerline_fonts = 1
+let g:airline_theme='hybrid'
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
+" Syntastic Configuration
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_cpp_include_dirs = ["trca/libs"]
+"let g:syntastic_cpp_remove_include_errors = 1
+"let g:syntastic_python_pylint_post_args="--max-line-length=120"
+"let g:syntastic_python_flake8_args='--ignore=W291,W293,E251,E265,E302,E305,E501,E225,E722'
+
+" Ultisnip configuration.
+" change the expand trigger to something else if using 'YouCompleteMe'
+"let g:UltiSnipsExpandTrigger="<c-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
+
+" YCM
+"let g:ycm_confirm_extra_conf = 0 " Don't ask for confirmation before loading a non-global ycm_extra_conf file. NOTE: leaving this at 1 may be helpful to make sure that the correct file is being loaded
+"let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"" only show completion as a list instead of a sub-window
+"set completeopt-=preview
+"" start completion from the first character
+"let g:ycm_min_num_of_chars_for_completion=1
+"" complete syntax keywords
+"let g:ycm_seed_identifiers_with_syntax=1
+
+"nnoremap ,g :YcmCompleter GoToDeclaration <CR>
+"nnoremap ,G :YcmCompleter GoToDefinition <CR>
+let g:loaded_youcompleteme = 1
+
+" toggle buffers
+nnoremap <F4> :b#<CR>
+
+nnoremap <space> <C-d>
+nnoremap - <C-u>
+
+
+" Move line by line even when the line is wrapped
+"map j gj
+"map k gk
+
+set t_BE=
